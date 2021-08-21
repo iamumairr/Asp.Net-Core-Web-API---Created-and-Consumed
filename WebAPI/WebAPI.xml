@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.NationalParksController.GetNationalParks">
+            <summary>
+            Get list of national parks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.NationalParksController.GetNationalPark(System.Int32)">
+            <summary>
+            Get individual national park
+            </summary>
+            <param name="nationalParkId"> Id of the national park </param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.NationalParksController.CreateNationalPark(WebAPI.Models.Dtos.NationalParkDto)">
+            <summary>
+            Create a National Park Record
+            </summary>
+            <param name="nationalParkDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.NationalParksV2Controller.GetNationalParks">
+            <summary>
+            Get list of national parks.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.TrailsController.GetTrails">
+            <summary>
+            Get list of trails.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.TrailsController.GetTrail(System.Int32)">
+            <summary>
+            Get individual trail
+            </summary>
+            <param name="trailId"> Id of the trail </param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.TrailsController.CreateTrail(WebAPI.Models.Dtos.TrailCreateDto)">
+            <summary>
+            Create a trail Record
+            </summary>
+            <param name="trailDto"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
