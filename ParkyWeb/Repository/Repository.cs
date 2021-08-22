@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -60,7 +58,7 @@ namespace ParkyWeb.Repository
 
         public async Task<IEnumerable<T>> GetAllAsync(string url)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, url);
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
             var client = _clientFactory.CreateClient();
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -73,7 +71,7 @@ namespace ParkyWeb.Repository
 
         public async Task<T> GetAsync(string url, int Id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Delete, url + Id);
+            var request = new HttpRequestMessage(HttpMethod.Get, url + Id);
             var client = _clientFactory.CreateClient();
             HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == HttpStatusCode.OK)

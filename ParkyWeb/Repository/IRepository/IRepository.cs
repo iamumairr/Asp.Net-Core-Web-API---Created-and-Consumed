@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ParkyWeb.Repository.IRepository
 {
-    internal interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         Task<T> GetAsync(string url, int Id);
 

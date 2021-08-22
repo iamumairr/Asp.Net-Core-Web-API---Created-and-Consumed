@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParkyWeb.Repository.IRepository
 {
-    internal interface ITrailRepository : IRepository<Trail>
+    public interface ITrailRepository : IRepository<Trail>
     {
     }
 }

@@ -10,7 +10,6 @@
     <link href="~/lib/jqueryui/jquery-ui.min.css" rel="stylesheet" />
     <link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
     <link href="~/lib/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
-    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -28,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="NationalParks" asp-action="Index">National Parks</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +46,7 @@
             &copy; @DateTime.Now.Year - Parky Web
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
