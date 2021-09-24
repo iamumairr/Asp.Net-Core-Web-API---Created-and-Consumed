@@ -1,0 +1,88 @@
+﻿@model ParkyWeb.Models.NationalPark
+@{
+    ViewData["Title"] = "Upsert";
+    var title = "Create National Park";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <div class="row p-2 m-2 bg-white border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+            title = "Update National Park";
+        }
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="State"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="State" class="form-control" />
+                    <span class="text-danger" asp-validation-for="State"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Picture"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="files" asp-for="Picture" multiple class="form-control" />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Established"></label>
+                </div>
+                <div class="col-8">
+                    @{
+                        var dateEst = "";
+                        if (Model.Id != 0)
+                        {
+                            dateEst = Model.Established.ToShortDateString();
+                        }
+                    }
+                    <input asp-for="Established" value="@dateEst" type="text" id="datepicker" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Established"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <input type="submit" class="btn btn-primary form-control" value="@(Model.Id != 0 ? "Update" : "Create")" />
+                    @*<button class="btn btn-primary form-control" type="submit">
+                        @(Model.Id != 0 ? "Update" : "Create")
+                    </button>*@
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 float-end">
+            @if (Model.Picture != null)
+            {
+                var base64 = Convert.ToBase64String(Model.Picture);
+                var imageSource = string.Format("data:image/jpg;base64,{0}", base64);
+                <img src="@imageSource" alt="some image" class="w-100" />
+            }
+
+        </div>
+    </div>
+</form>
