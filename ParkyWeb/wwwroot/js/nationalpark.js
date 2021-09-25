@@ -25,8 +25,33 @@ function loadDataTable() {
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </div>`
-                }, "width":"30%"
+                }, "width": "30%"
             },
         ]
+    });
+}
+
+function Delete(url) {
+    Swal.fire({
+        title: "Are you sure you want to Delete?",
+        text: "You will not be able to revert the data!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                type: "Delete",
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        dataTable.ajax.reload();
+                    } else {
+                        toastr.error(data.message);
+                    }
+                }
+            })
+        }
     });
 }

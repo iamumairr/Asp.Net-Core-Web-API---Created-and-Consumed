@@ -41,8 +41,8 @@
                     <label asp-for="Picture"></label>
                 </div>
                 <div class="col-8">
-                    <input type="file" name="files" asp-for="Picture" multiple class="form-control" />
-                    <span class="text-danger" asp-validation-for="Name"></span>
+                    <input type="file" name="files" id="projectImage" asp-for="Picture" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Picture"></span>
                 </div>
             </div>
             <br />
@@ -67,8 +67,8 @@
                 <div class="col-4 offset-4">
                     <input type="submit" class="btn btn-primary form-control" value="@(Model.Id != 0 ? "Update" : "Create")" />
                     @*<button class="btn btn-primary form-control" type="submit">
-                        @(Model.Id != 0 ? "Update" : "Create")
-                    </button>*@
+                            @(Model.Id != 0 ? "Update" : "Create")
+                        </button>*@
                 </div>
                 <div class="col-4">
                     <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
@@ -82,7 +82,18 @@
                 var imageSource = string.Format("data:image/jpg;base64,{0}", base64);
                 <img src="@imageSource" alt="some image" class="w-100" />
             }
-
         </div>
     </div>
 </form>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "2000:2021"
+            });
+        });
+    </script>
+}

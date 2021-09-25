@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,5 +22,8 @@ namespace ParkyWeb.Models
         public byte[] Picture { get; set; }
 
         public DateTime Established { get; set; }
+
+        //[NotMapped]
+        //public IFormFile PictureFile { get; set; }
     }
 }
