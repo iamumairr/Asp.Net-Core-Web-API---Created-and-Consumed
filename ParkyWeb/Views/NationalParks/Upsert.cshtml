@@ -5,7 +5,7 @@
 }
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
-    <div class="row p-2 m-2 bg-white border">
+    <div class="row p-2 m-2 bg-primary border" style="border-radius:10px;">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Id != 0)
         {
@@ -13,12 +13,12 @@
             title = "Update National Park";
         }
         <div class="col-12 p-3">
-            <h2 class="text-primary">@title</h2>
+            <h2 class="text-white">@title</h2>
         </div>
         <div class="col-8">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Name"></label>
+                    <label asp-for="Name" class="text-white"></label>
                 </div>
                 <div class="col-8">
                     <input asp-for="Name" class="form-control" />
@@ -28,7 +28,7 @@
             <br />
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="State"></label>
+                    <label asp-for="State" class="text-white"></label>
                 </div>
                 <div class="col-8">
                     <input asp-for="State" class="form-control" />
@@ -38,7 +38,7 @@
             <br />
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Picture"></label>
+                    <label asp-for="Picture" class="text-white"></label>
                 </div>
                 <div class="col-8">
                     <input type="file" name="files" id="projectImage" asp-for="Picture" class="form-control" />
@@ -48,7 +48,7 @@
             <br />
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Established"></label>
+                    <label asp-for="Established" class="text-white"></label>
                 </div>
                 <div class="col-8">
                     @{
@@ -65,13 +65,10 @@
             <br />
             <div class="form-group row">
                 <div class="col-4 offset-4">
-                    <input type="submit" class="btn btn-primary form-control" value="@(Model.Id != 0 ? "Update" : "Create")" />
-                    @*<button class="btn btn-primary form-control" type="submit">
-                            @(Model.Id != 0 ? "Update" : "Create")
-                        </button>*@
+                    <input type="submit" class="btn btn-success btn-sm form-control" value="@(Model.Id != 0 ? "Update" : "Create")" />
                 </div>
                 <div class="col-4">
-                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                    <a asp-action="Index" class="btn btn-warning btn-sm form-control">Back to List</a>
                 </div>
             </div>
         </div>
@@ -87,9 +84,11 @@
 </form>
 
 @section Scripts{
+<partial name="_ValidationScriptsPartial"/>
     <script>
         $(function () {
             $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd',
                 changeMonth: true,
                 changeYear: true,
                 yearRange: "2000:2021"

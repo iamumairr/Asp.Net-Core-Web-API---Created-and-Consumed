@@ -85,7 +85,7 @@ namespace ParkyWeb.Controllers
         {
             if (id != null)
             {
-                var status = await _repo.DeleteAsync(StaticDetails.NationalParkAPIPath, Convert.ToInt32(id));
+                var status = await _repo.DeleteAsync(StaticDetails.NationalParkAPIPath, id.GetValueOrDefault());
 
                 if (status)
                 {

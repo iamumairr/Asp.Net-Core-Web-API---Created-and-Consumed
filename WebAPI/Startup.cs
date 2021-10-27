@@ -50,32 +50,6 @@ namespace WebAPI
             services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen();
-            //swashbuckle
-            //services.AddSwaggerGen(options =>
-            //{
-            //    options.SwaggerDoc("ParkyOpenAPISpec", new OpenApiInfo
-            //    {
-            //        Title = "Parky API",
-            //        Version = "1",
-            //        Description = "Api with national parks and trails information.",
-            //        TermsOfService = new Uri("https://example.com/terms"),
-            //        Contact = new OpenApiContact
-            //        {
-            //            Name = "Umair Ijaz",
-            //            Email = "umairkhosa398@gmail.com",
-            //            Url = new Uri("https://twitter.com/umairijazkhosa"),
-            //        },
-            //        License = new OpenApiLicense
-            //        {
-            //            Name = "Use under LICX",
-            //            Url = new Uri("https://example.com/license"),
-            //        }
-            //    });
-
-            //    var xmlCommentFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            //    var filePath = Path.Combine(AppContext.BaseDirectory, xmlCommentFile);
-            //    options.IncludeXmlComments(filePath);
-            //});
             services.AddControllers();
         }
 
@@ -105,13 +79,6 @@ namespace WebAPI
                 }
                 options.RoutePrefix = string.Empty;
             });
-
-            //app.UseSwaggerUI(options =>
-            //{
-            //    options.SwaggerEndpoint("/swagger/ParkyOpenAPISpec/swagger.json", "Parky API");
-            //    // options.SwaggerEndpoint("/swagger/ParkyOpenAPISpecTrails/swagger.json", "Parky API Trails");
-            //    options.RoutePrefix = string.Empty;
-            //});
 
             app.UseStaticFiles();
 

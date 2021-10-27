@@ -1,0 +1,96 @@
+﻿@model ParkyWeb.Models.ViewModels.TrailsVM
+@{
+    ViewData["Title"] = "Upsert";
+    var title = "Create Trail";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <div class="row p-2 m-2 bg-primary border" style="border-radius:10px;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Trail.Id != 0)
+        {
+            <input type="hidden" asp-for="Trail.Id" />
+            title = "Update Trail";
+        }
+        <div class="col-12 p-3">
+            <h2 class="text-white">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Trail.NationalParkId" class="text-white"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Trail.NationalParkId" asp-items="Model.NationalParksList" class="form-select">
+                        <option value="">--Choose a National Park--</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="Trail.NationalParkId"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Trail.Name" class="text-white"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Trail.Name" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Trail.Name"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Trail.Difficulty" class="text-white"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Trail.Difficulty" asp-items="Html.GetEnumSelectList<Trail.DifficultyType>()" class="form-select">
+                    </select>
+                    <span class="text-danger" asp-validation-for="Trail.Difficulty"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Trail.Distance" class="text-white"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Trail.Distance" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Trail.Distance"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Trail.Elevation" class="text-white"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Trail.Elevation" class="form-control" />
+                    <span class="text-danger" asp-validation-for="Trail.Elevation"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <input type="submit" class="btn btn-success btn-sm form-control" value="@(Model.Trail.Id != 0 ? "Update" : "Create")" />
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-warning btn-sm form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "2000:2021"
+            });
+        });
+    </script>
+}

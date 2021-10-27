@@ -1,11 +1,12 @@
-﻿@{
-    ViewData["Title"] = "National Parks";
+﻿
+@{
+    ViewData["Title"] = "Trails";
 }
 <br />
 <div class="border p-3" style="border-radius:10px;">
     <div class="row">
         <div class="col-6">
-            <h2 class="text-warning">National Parks List</h2>
+            <h2 class="text-warning">Trails List</h2>
         </div>
         <div class="col-6">
             <a class="btn btn-success float-end" asp-action="Upsert"><i class="fas fa-plus"></i> Create New</a>
@@ -13,18 +14,21 @@
     </div>
     <br /><br />
     <div class="bg-info p-3">
-        <table id="tableData" class="table table-light table-striped table-bordered w-100 py-3">
+        <table id="tableData" class="table table-light table-striped table-bordered w-100">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>State</th>
+                    <th>National Park</th>
+                    <th>Trail Name</th>
+                    <th>Distance</th>
+                    <th>Elevation</th>
                     <th></th>
                 </tr>
             </thead>
         </table>
     </div>
-</div>
+    </div>
 
-@section Scripts{
-    <script src="~/js/nationalpark.js"></script>
-}
+    @section Scripts{
+        <script src="~/js/trail.js"></script>
+    }
+
