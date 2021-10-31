@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace WebAPI.Controllers
     [ApiController]
     //  [ApiExplorerSettings(GroupName = "ParkyOpenAPISpecNP")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public class NationalParksController : Controller
+    public class NationalParksController : ControllerBase
     {
         private INationalParkRepository _Repository;
         private readonly IMapper _mapper;
@@ -49,6 +50,7 @@ namespace WebAPI.Controllers
         [HttpGet("{nationalParkId:int}", Name = "GetNationalPark")]
         [ProducesResponseType(200, Type = typeof(NationalParkDto))]
         [ProducesResponseType(404)]
+        [Authorize]
         [ProducesDefaultResponseType]
         public IActionResult GetNationalPark(int nationalParkId)
         {
